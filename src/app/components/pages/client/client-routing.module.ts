@@ -12,9 +12,17 @@ const routes: Routes = [
       {
         path: '',
         loadChildren: () => import('./home/home.module').then(m => m.HomePageModule),
-      }
+      },
+      {
+        path: 'contacto',
+        loadChildren: () => import('./contact/contact.module').then(m => m.ContactPageModule),
+      },
     ],
-  }
+  },
+  {
+    path: 'contact',
+    loadChildren: () => import('./contact/contact.module').then(m => m.ContactPageModule),
+  },
 ];
 
 @NgModule({

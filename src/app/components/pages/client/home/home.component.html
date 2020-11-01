@@ -1,1 +1,37 @@
-<p>home works!</p>
+<section>
+  <div nz-row>
+    <div nz-col nzXs="24" nzSm="4" nzMd="6" nzLg="8" nzXl="10">
+      {{ pruebaService.prueba }}
+
+      <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select a person" [(ngModel)]="selectedValue" (ngModelChange)="prueba()">
+        <nz-option nzLabel="Jack" nzValue="jack"></nz-option>
+        <nz-option nzLabel="Lucy" nzValue="lucy"></nz-option>
+        <nz-option nzLabel="Tom" nzValue="tom"></nz-option>
+      </nz-select>
+
+      <a (click)="prueba()">Enviar</a>
+    </div>
+    <div nz-col nzXs="24" nzSm="16" nzMd="12" nzLg="8" nzXl="4">
+      <form nz-form #Person="ngForm">
+        <nz-form-item>
+          <span [class.labelError]="(nombre.invalid && nombre.touched) && nombre.errors.required || (nombre.invalid && nombre.touched) && nombre.errors.minlength">Nombre</span>
+            <div [class.error]="(nombre.invalid && nombre.touched) && nombre.errors.required || (nombre.invalid && nombre.touched) && nombre.errors.minlength">
+              <input type="text" nz-input placeholder="Nombre" [(ngModel)]="prueba2.nombre" #nombre="ngModel" name="nombre" minlength="3" required/>
+            </div>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-label>Apellido</nz-form-label>
+            <input nz-input placeholder="Apellido" [(ngModel)]="prueba2.apellido" #apellido="ngModel" name="apellido" required/>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-label>Perfil</nz-form-label>
+            <input nz-input placeholder="Perfil" [(ngModel)]="prueba2.profile" #profile="ngModel" name="profile" required/>
+        </nz-form-item>
+        <button (click)="form()" [disabled]="!Person.form.valid" [class.active]="Person.form.valid" [class.disable]="!Person.form.valid">Enviar</button>
+      </form>
+    </div>
+    <div nz-col nzXs="24" nzSm="4" nzMd="6" nzLg="8" nzXl="10">
+      Col 3
+    </div>
+  </div>
+</section>

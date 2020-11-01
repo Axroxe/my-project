@@ -7,6 +7,7 @@ import {ClientComponent} from './client.component';
 import {ClientPageRoutingModule} from './client-routing.module';
 import {LayoutModule} from '../../shared/layout/layout.module';
 import {NgZorroAntdModule} from 'ng-zorro-antd';
+import {SharedModule} from '../../shared/shared.module';
 
 
 @NgModule({
@@ -16,8 +17,9 @@ import {NgZorroAntdModule} from 'ng-zorro-antd';
     ClientPageRoutingModule,
     LayoutModule,
     NgZorroAntdModule,
+    SharedModule
   ],
-  declarations: [ClientComponent,],
+  declarations: [ClientComponent],
   exports: []
 })
 export class ClientPageModule {}

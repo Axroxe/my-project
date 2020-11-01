@@ -12,6 +12,7 @@ import {NotFoundComponent} from './components/shared/not-found/not-found.compone
 import { NgZorroAntdModule, NZ_I18N, en_US } from 'ng-zorro-antd';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FilterPipe } from './pipes/filter.pipe';
 
 registerLocaleData(localePy, 'es');
 registerLocaleData(en);
@@ -19,7 +20,7 @@ registerLocaleData(en);
 @NgModule({
   declarations: [
     AppComponent,
-    NotFoundComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {HomeComponent} from "./home.component";
-import {LoadGuard} from '../../../../guard/load.guard';
+import {ContactComponent} from './contact.component';
+import {ClientGuard} from '../../../../guard/client.guard';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent,
-    canActivate: [LoadGuard],
+    component: ContactComponent,
+    canActivate: [ClientGuard],
   },
 ];
 
@@ -15,4 +15,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class HomePageRoutingModule {}
+export class ContactPageRoutingModule {}

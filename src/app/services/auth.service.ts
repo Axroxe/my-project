@@ -17,16 +17,9 @@ export class AuthServices {
   HEADER: HttpHeaders;
 
   person: person = {
-    name: null,
-    lastName: null,
-    userName: null,
-    direction: null,
-    mobile: null,
-    state: null,
-    password: null,
-    email: null,
-    departmentName: null,
-    cityName: null,
+    nombre: null,
+    apellido: null,
+    profile: null
   };
 
   constructor(

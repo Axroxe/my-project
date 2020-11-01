@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthServices } from '../services/auth.service';
+import {PruebaService} from '../services/prueba.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,18 +10,19 @@ import { AuthServices } from '../services/auth.service';
 export class LoadGuard  implements CanActivate {
 
   constructor(
-    public authService: AuthServices,
+    public pruebaService: PruebaService,
     private router: Router){}
 
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-      if(this.authService.state){
+    this.pruebaService.prueba2 = JSON.parse(localStorage.getItem("prueba"));
+      if(this.pruebaService.prueba2){
 
-        if(this.authService.person['profile'] == 'Cliente')this.router.navigate(['/']);
-        if(this.authService.person['profile'] == 'Administrador')this.router.navigate(['/admin']);
+        if(this.pruebaService.prueba2['profile'] == 'Cliente')this.router.navigate(['/contact']);
         return false;
       }
+      console.log(this.pruebaService.prueba2);
       return true;
   }
 }
